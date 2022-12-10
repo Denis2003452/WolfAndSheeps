@@ -47,15 +47,21 @@ internal class Program
                     else if (s.X >= 0 & s.Y == 15)
                         s.Move(3);
                     else if (s.X == 15 & s.Y >= 0)
-                        s.Move(2);
-                    if (s.X == w.X & s.Y == w.Y)
-                        bufferlist.Add(s);                        
+                        s.Move(2);                                            
                 }
                 else
                 {
                     w.Move(dirWolf);
                 }
             }
+            foreach (Animal s in animals)
+            {
+                if (s.Name == "Sheep")
+                {
+                    if (s.X == w.X & s.Y == w.Y)
+                        bufferlist.Add(s);
+                }         
+            }                    
             foreach (Animal buffer in bufferlist)
             {
                 animals.Remove(buffer);
